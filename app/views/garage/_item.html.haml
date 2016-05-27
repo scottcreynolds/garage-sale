@@ -2,12 +2,12 @@
   %a{:href => "#", :title => item.name }
     %img.thumbnail.img-responsive{:src => item.primary_image }
   .caption
-    %b=item.name
+    %b="$#{item.price} - #{item.name}"
     %p=item.description
     %p
-      %script.stripe-button{"data-label" => "$#{item.price} Buy", "data-amount" => "#{item.price}00", "data-description" => item.name, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/checkout.js"}
-      %a.btn.btn-warning{ href: "mailto:scott@scottcreynolds.com?subject=#{item.name}", target: "_blank"} E-Mail
-      %a.btn.btn-default{:href => item.details_link, target: "_blank", :role => "button"} More Details
+      %a.btn.btn-warning{ href: "mailto:scott@scottcreynolds.com?subject=#{item.name}", target: "_blank"} Contact
+      - unless item.details_link.blank?
+        %a.btn.btn-default{:href => item.details_link, target: "_blank", :role => "button"} More Details
   .secondary-images.hidden
     - item.secondary_image_urls.each do |image_url|
       %img.img-responsive{:src => image_url}
