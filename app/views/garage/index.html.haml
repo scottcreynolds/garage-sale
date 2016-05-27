@@ -6,7 +6,7 @@
     - elsif flash[:error]
       .notice.alert.alert-danger.text-center
         = flash[:error]
-    %h1.text-center !¡ Garage Sale ¡!
+    %h1.text-center Scott's Moving, Buy His Stuff!
     .row
       - @items.each do |item|
         = render :partial => 'item', locals: {item: item}

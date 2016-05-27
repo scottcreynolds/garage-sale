@@ -11,6 +11,7 @@
           %th Name
           %th Price
           %th Buyers Email
+          %th Edit
 
       %tbody
         - @items.each do |item|
@@ -18,9 +19,11 @@
             %td= item.id
             %td
               - if item.sold
-                %b= item.sold
+                = link_to "Mark Unsold", unsold_item_path(item), class: "btn btn-warning"
               - else
-                = item.sold
+                = link_to "Mark Sold!", sold_item_path(item), class: "btn btn-success"
             %td= item.name
             %td= item.price
             %td= item.buyer_email
+            %td
+              = link_to("Edit", edit_item_path(item), class: "btn btn-default")

@@ -1,0 +1,9 @@
+<%= form_for @item do |f| %>
+  <div><%= f.label :name %><%= f.text_field :name %></div>
+  <div><%= f.label :description %><%= f.text_area :description %></div>
+  <div><%= f.label :primary_image %><%= f.text_field :primary_image %></div>
+  <div><%= f.label :secondary_image_urls %><%= f.text_field :secondary_image_urls %></div>
+  <div><%= f.label :details_link %><%= f.text_field :details_link %></div>
+  <div><%= f.label :price %><%= f.text_field :price %></div>
+  <%= f.submit %>
+<% end %>
